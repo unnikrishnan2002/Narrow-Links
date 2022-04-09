@@ -45,8 +45,9 @@
   }
 
   .link-box{
-    font-size: 14px;
+    font-size: 20px;
     width: 31.25rem;
+    margin-bottom: 15px;
   }
 
   .shorten-button{
@@ -85,10 +86,17 @@
   font-size: 50px;
   margin-right: 500px;
   margin-left: 50px;
-  margin-top: 20px;
+  margin-top: 50px;
 
 } 
 
+.narrowurl {
+  font-size: 20px;
+  border: solid 2px black;
+  padding: 7px;
+  background-color: #b5b3bb;
+  margin-right: 50px;
+}
 
 /* Here onwards code */
 

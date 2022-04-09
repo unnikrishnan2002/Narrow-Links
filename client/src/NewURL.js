@@ -6,13 +6,13 @@ const NewURL = () => {
   const [url, setUrl] = useState("");
   const [narrowUrl, setNarrowUrl] = useState("");
 
-  let finalUrl = "";
+  let finalUrl = "nrly.herokuapp.com/";
 
   const handleOnClick = async (e) => {
 
     e.preventDefault();
 
-    const response = await fetch('http://localhost:5000/api/url/narrowurl', {
+    const response = await fetch('https://nrly.herokuapp.com/api/url/narrowurl', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ const NewURL = () => {
   }
 
 
-  finalUrl = narrowUrl ? "http://localhost:5000/" + narrowUrl : "";
+  finalUrl = narrowUrl ? "nrly.herokuapp.com/" + narrowUrl : "nrly.herokuapp.com/";
 
   const handleChange = (event) => {
     setUrl(event.target.value)
@@ -67,13 +67,15 @@ const NewURL = () => {
             <button type="submit" className="shorten-button btn btn-primary mb-3" onClick={handleOnClick}>Narrow</button>
           </div>
         </form>
-        <div>{finalUrl}</div>
+        <div style={{height: '60px'}}>
+        <div className="narrowurl">{finalUrl}</div>
+        </div>
 
 
         <div class="row">
          
           <div className="copy-btn col-md-6">
-           <button type="copy" className="copy-button btn btn-primary mb-3">Copy URL</button>  
+           <button type="copy" className="copy-button btn btn-primary mb-3">Copy Narrow-URL</button>  
           </div>
           <div className="col-md-6">
             <a className="QR-icon" href="">
