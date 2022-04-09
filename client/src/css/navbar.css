@@ -1,0 +1,20 @@
+/* Write your Navbar.js file's css here  */
+
+a{
+    font-family: 'Rubik', sans-serif;
+}
+
+.navbar{
+    margin-bottom: 0;
+ }
+
+ .navbar-brand{
+    font-family: "Ubuntu";
+    font-size: 1.5rem;
+    font-weight: bold; 
+}
+
+.nav-link{
+    font-size: 1.2rem;
+    font-family: "Montserrat";
+}
