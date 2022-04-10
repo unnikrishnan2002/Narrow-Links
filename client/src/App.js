@@ -9,7 +9,7 @@ function App() {
     <>
     <Navbar/>
     <NewURL/>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   );
 }

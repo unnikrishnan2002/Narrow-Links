@@ -6,7 +6,7 @@ const NewURL = () => {
   const [url, setUrl] = useState("");
   const [narrowUrl, setNarrowUrl] = useState("");
 
-  let finalUrl = "nrly.herokuapp.com/";
+  let finalUrl = "http://nrly.herokuapp.com/";
 
   const handleOnClick = async (e) => {
 
@@ -39,7 +39,7 @@ const NewURL = () => {
   }
 
 
-  finalUrl = narrowUrl ? "nrly.herokuapp.com/" + narrowUrl : "nrly.herokuapp.com/";
+  finalUrl = narrowUrl ? "http://nrly.herokuapp.com/" + narrowUrl : "http://nrly.herokuapp.com/";
 
   const handleChange = (event) => {
     setUrl(event.target.value)
