@@ -17,7 +17,7 @@ const Footer = () => {
           <button class="btn btn-danger btn-lg download-button" type="button"> <i class="fa-brands fa-google-play"></i> Download</button>
     </div> */}
 
-    <p className="copyright">© Copyright NarrowLinks</p>
+    <p className="copyright">© Copyright NarrowLinks 2022</p>
 
     </div>
     </footer>

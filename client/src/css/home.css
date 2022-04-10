@@ -9,7 +9,7 @@ body {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 90vh;
-  margin-top: 150px;
+  margin-top: 120px;
 }
 
 @keyframes gradient {
@@ -70,7 +70,7 @@ div.container {
 }
 
 .copyright {
-  font-family: 'Merriweather', serif;
+  font-family: 'oswald', serif;
   margin: 40px;
   padding-right: 20px;
 }
