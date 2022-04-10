@@ -1,7 +1,13 @@
-import React from 'react';
+import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import '../css/navbar.css';
+import LoginButton from "./Login";
+import LogoutButton from "./Logout";
 
 const Navbar = () => {
+
+    const { isAuthenticated } = useAuth0();
+
     return (
 
         <>
@@ -11,7 +17,7 @@ const Navbar = () => {
 
 
                     <a class="navbar-brand mx-auto" href="#">
-                        <i class="fa-solid fa-link"></i>
+                        &nbsp;<i class="fa-solid fa-link"></i>
                     </a>
 
 
@@ -34,6 +40,8 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <a className="nav-link active" href="#">Sign up</a>
                             </li>
+                            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+                            {/* <LoginButton/> */}
                         </ul>
                     </div>
                 </nav>
