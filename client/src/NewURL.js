@@ -51,6 +51,13 @@ const NewURL = () => {
     alert("Narrow URL Copied!!");
   }
 
+  function qrCalling(){
+    let input = document.querySelector(".form input");
+    let userInput = input.value;
+    let imgSrc = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+userInput;
+    window.open(imgSrc);
+  }
+
   return (
 
     // This is the HTML data of the homepage ie; the page in which we give original Url and get the short Url
@@ -65,8 +72,8 @@ const NewURL = () => {
     <div className=" container my-5 ">
       <h1 className="narrow-links">Narrow-Links</h1>
       <form className="row g-3">
-        <div className="col-auto">
-          <input type="text" className="link-box form-control" id="inputPassword2" placeholder="Paste URL to shorten" value={url} onChange={handleChange} />
+        <div className="col-auto form">
+          <input type="text" className="link-box form-control " id="inputPassword2" placeholder="Paste URL to shorten" value={url} onChange={handleChange} />
         </div>
         <div className="col-auto">
           <button type="submit" className="shorten-button btn btn-primary mb-3" onClick={handleOnClick}>Narrow</button>
@@ -82,7 +89,7 @@ const NewURL = () => {
         </div>
         <div className="col-md-6">
           <a className="QR-icon" href="">
-            <i class="fa-solid fa-qrcode"></i>
+            <i onClick={qrCalling} class="fa-solid fa-qrcode"></i>
           </a>
         </div>
       </div>
