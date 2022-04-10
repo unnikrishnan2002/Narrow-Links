@@ -9,7 +9,7 @@ const Navbar = () => {
     const { isAuthenticated } = useAuth0();
 
     return (
-
+        
         <>
             <div id="title" >
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
