@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.use('/api/url', require('./routes/url'));
 app.use('/', require('./routes/shortUrl'));
+app.use('/api/sms', require('./routes/sms'));
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

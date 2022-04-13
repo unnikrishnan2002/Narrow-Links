@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-const dbURI = "Replace with your own mongoDB URI";
+const dbURI = process.env.MONGODBURI;
 
 const connectToDb = () => {
     mongoose
