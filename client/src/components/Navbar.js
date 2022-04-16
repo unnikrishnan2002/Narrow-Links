@@ -13,8 +13,8 @@ const Navbar = () => {
         <>
             <div id="title" >
                 <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
-                    <a class="navbar-brand mx-auto" href="#">
-                        &nbsp;<i class="fa-solid fa-link"></i>
+                    <a className="navbar-brand mx-auto" href="#">
+                        &nbsp;<i className="fa-solid fa-link"></i>
                     </a>
 
                     &nbsp;<a className="navbar-brand" href="/">Narrow Links</a>
@@ -28,7 +28,7 @@ const Navbar = () => {
                                 <a className="nav-link active" href="/">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" target="_blank" href="https://github.com/unnikrishnan2002/Narrow-Links"><i class="fa-brands fa-github"></i> Github</a>
+                                <a className="nav-link active" target="_blank" href="https://github.com/unnikrishnan2002/Narrow-Links"><i className="fa-brands fa-github"></i> Github</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link active" href="#">Contact us</a>

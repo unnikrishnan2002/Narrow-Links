@@ -1,7 +1,7 @@
 import './App.css';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import NewURL from './NewURL';
+import NewURL from './pages/Home';
 
 function App() {
 

@@ -4,12 +4,11 @@
   padding: 0;
 }
 
-body {
+.shortener {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  height: 90vh;
-  margin-top: 120px;
+  height: 96.3vh;
 }
 
 @keyframes gradient {
@@ -80,8 +79,10 @@ div.container {
 }
 
 .copy-btn {
-  margin-top: 20px;
+  /* margin-top: 10px; */
   padding-left: 270px;
+  font-size: 50px;
+  color: rgb(6, 147, 241);
 }
 
 .QR-icon {
@@ -92,11 +93,11 @@ div.container {
 }
 
 .narrowurl {
-  font-size: 15px;
+  /* font-size: 10px; */
   border: solid 2px black;
-  padding: 7px;
-  background-color: #b5b3bb;
-  margin-right: 50px;
+  /* padding: 3px; */
+  /* background-color: #b5b3bb; */
+  margin-right: 70px;
 }
 
 /* Code from here*/
