@@ -1,6 +1,34 @@
-# Narrow-Links
+# 🔗Narrow-Links
 
-## ✒️ Summary
+This project is an attempt to make a URL Shortener Service(Narrow-Links) - it creates a short, unique URL that will redirect to the specific website of the user's choice.
+It is secure and has HTTP protocol and data encryption.
+So if a person wants to shares a link or include a link in their profile there are circumstances where it is too long and it takes up the whole space and a lot of characters and which is a problem when there are limited characters to be typed. so our project solves the problem. we make those long URLs short and have a copy button to copy the short URL immediately.
+
+It also has a QR Code Generator - which generates a QR code of the link pasted by the user and by scanning this URL it redirects to the Website link that the user pasted.
+
+One more fature which is recently included is an easy one click button to send the link to whovever you want in the form of an SMS. **Twilio's SMS Api** is used to serve this purpose , you just have to enter the number and hit send , and the shortened link will reach to that number via SMS.
+
+
+#### Checkout on Devfolio : https://devfolio.co/projects/narrowlinks-291f
+
+#### Website Link : https://narrow-links.vercel.app/
+
+## 🧰 Technologies Used 
+
+- **React.js** 
+- **Node.js** 
+- **Express.js**
+- **MongoDB Atlas**
+- **Bootstrap**
+
+## 🛠️ API's and Other Services
+
+- **Twilio SMS API**
+- **QR Code API**
+- **Auth0 Login**
+- **FontAwesome Icons**
+
+## 🚀 How to contribute ?
 
 1. Fork this repository on GitHub.
 
@@ -10,7 +38,7 @@
     
     `$ cd Narrow-Links`
 
-### Installation and Usage 
+## Installation and Usage 
 
 4. Go the folder where you want to contribute:
 
