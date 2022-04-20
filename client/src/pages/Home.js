@@ -101,10 +101,10 @@ const NewURL = () => {
           <h1 className="narrow-links">Narrow-Links</h1>
           <form className="row g-3">
             <div className="col-auto form">
-              <input type="text" className="link-box form-control " id="inputPassword2" placeholder="Paste URL to shorten" value={url} onChange={handleChange} />
+              <input type="text" className="link-box form-control " id="inputUrl" placeholder="Paste URL to shorten" value={url} onChange={handleChange} data-testid="input"/>
             </div>
             <div className="col-auto">
-              <button type="submit" className="shorten-button btn btn-primary mb-3" onClick={handleOnClick}>Narrow</button>
+              <button type="submit" className="shorten-button btn btn-primary mb-3" onClick={handleOnClick} data-testid="narrow">Narrow</button>
             </div>
           </form>
           <div style={{ height: '70px' }}>
