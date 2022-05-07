@@ -41,7 +41,7 @@ const NewURL = () => {
   }
 
 
-  finalUrl = narrowUrl ? "http://nrly.herokuapp.com/" + narrowUrl : "http://nrly.herokuapp.com/";
+  finalUrl = narrowUrl ? "http://nrly.herokuapp.com/" + narrowUrl : "";
 
   const handleChange = (event) => {
     setUrl(event.target.value)
@@ -58,7 +58,10 @@ const NewURL = () => {
     alert("Narrow URL Copied!!");
   }
 
-  const handleQRClick = () => {
+  const handleQRClick = (e) => {
+
+    e.preventDefault();
+
     let input = document.querySelector(".form input");
     let userInput = input.value;
     let imgSrc = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + userInput;
@@ -111,7 +114,7 @@ const NewURL = () => {
             {/* <div className="narrowurl">{finalUrl}</div> */}
 
             <div className="input-group mb-3 narrowurl">
-              <input type="text" className="form-control" placeholder="http://nrly.herokuapp.com/" aria-describedby="button-addon2" value={finalUrl} readOnly />
+              <input type="text" className="form-control" placeholder="Shortened link will appear here" aria-describedby="button-addon2" value={finalUrl} readOnly />
               <button className="btn btn-success" onClick={handleCopyClick} type="button" id="button-addon2">Copy</button>
             </div>
           </div>
