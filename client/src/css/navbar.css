@@ -25,8 +25,9 @@ a {
 }
 
 @media (min-width: 992px) {
-  .fa-brands,
-  .fa-solid {
+  .fa-id-badge,
+  .fa-house,
+  .fa-github {
     visibility: hidden;
   }
 
