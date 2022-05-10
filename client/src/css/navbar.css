@@ -4,27 +4,34 @@ a {
   font-family: 'Rubik', sans-serif;
 }
 
-.navbar {
-  margin-bottom: 12px;
-}
-
 .navbar-brand {
   font-family: 'Ubuntu';
   font-size: 1.5rem;
   font-weight: bold;
 }
-.fa-github,
-.fa-link {
-  margin: 5px;
+.fa-brands,
+.fa-solid {
+  margin: 0 10px;
 }
 
 .nav-link {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  margin: 3px 0 0 0;
   font-family: 'Montserrat';
 }
 
-.log-in {
-  height: 10px;
-  width: fit-content;
-  margin: auto;
+.signings {
+  margin: 0 0.3rem;
+}
+
+@media (min-width: 992px) {
+  .fa-brands,
+  .fa-solid {
+    visibility: hidden;
+  }
+
+  .nav-link:hover > .fa-brands,
+  .nav-link:hover > .fa-solid {
+    visibility: visible !important;
+  }
 }

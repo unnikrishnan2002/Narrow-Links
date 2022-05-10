@@ -17,7 +17,10 @@ export const Navigation = () => {
       <Navbar.Collapse id='basic-navbar-nav'>
         <Nav className='me-auto'></Nav>
         <Nav>
-          <Nav.Link href='#'>Home</Nav.Link>
+          <Nav.Link href='#'>
+            <i class='fa-solid fa-house'></i>
+            Home
+          </Nav.Link>
           <Nav.Link
             target='_blank'
             href='https://github.com/unnikrishnan2002/Narrow-Links'
@@ -25,7 +28,10 @@ export const Navigation = () => {
             <i className='fa-brands fa-github'></i>
             GitHub
           </Nav.Link>
-          <Nav.Link href='#'>Contact us</Nav.Link>
+          <Nav.Link href='#'>
+            <i class='fa-solid fa-id-badge'></i>
+            Contact us
+          </Nav.Link>
           <Nav.Link className='nav-item log-in'>
             {isAuthenticated ? <LogoutButton /> : <LoginButton />}
           </Nav.Link>
