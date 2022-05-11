@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import {
+  FormControl,
+  InputGroup,
+  Container,
+  ButtonGroup,
+  Button,
+} from 'react-bootstrap';
 import '../css/home.css';
 
-const NewURL = () => {
+const URLshortener = () => {
   const [url, setUrl] = useState('');
   const [narrowUrl, setNarrowUrl] = useState('');
   const [phNumber, setPhNumber] = useState('');
@@ -99,124 +106,53 @@ const NewURL = () => {
     // For the css for this page as well as the navbar page there are seperate files made there named home.css and navbar.css just write ypur css there and it will automatically appear here because i have imported it here and Navbar.js files
     <>
       <div className='shortener'>
-        <div className=' container my-4'>
-          <h1 className='narrow-links'>Narrow-Links</h1>
-          <form className='row g-3'>
-            <div className='col-auto form'>
-              <input
-                type='text'
-                className='link-box form-control '
-                id='inputUrl'
-                placeholder='Paste URL to shorten'
-                value={url}
-                onChange={handleChange}
-                onKeyPress={handleKeypress}
-                data-testid='input'
-              />
-            </div>
-            <div className='col-auto'>
-              <button
-                type='submit'
-                className='shorten-button btn btn-primary mb-3'
+        <Container className='narrow-links'>Narrow-Links</Container>
+        <Container>
+          <InputGroup className='mb-3 link-box'>
+            <FormControl
+              aria-label='Paste URL to shorten'
+              type='text'
+              id='inputUrl'
+              placeholder='Paste URL to shorten'
+              value={url}
+              onChange={handleChange}
+              onKeyPress={handleKeypress}
+              data-testid='input'
+            />
+            <ButtonGroup aria-label='Narrow Link'>
+              <Button
+                className='shorten-button'
+                variant='primary'
                 onClick={handleOnClick}
-                data-testid='narrow'
               >
                 Narrow
-              </button>
-            </div>
-          </form>
-          <div style={{ height: '70px' }}>
-            {/* <div className="narrowurl">{finalUrl}</div> */}
-
-            <div className='input-group mb-3 narrowurl'>
-              <input
-                type='text'
-                className='form-control'
-                placeholder='http://nrly.herokuapp.com/'
-                aria-describedby='button-addon2'
-                value={finalUrl}
-                readOnly
-              />
-              <button
-                className='btn btn-success'
+              </Button>
+            </ButtonGroup>
+          </InputGroup>
+          <InputGroup className='mb-3 narrowurl'>
+            <FormControl
+              aria-label='Shortened link will appear here'
+              type='text'
+              id='inputUrl'
+              placeholder='Shortened link will appear here'
+              onChange={handleChange}
+              onKeyPress={handleKeypress}
+              data-testid='input'
+            />
+            <ButtonGroup aria-label='Narrow Link'>
+              <Button
+                className='shorten-button'
+                variant='success'
                 onClick={handleCopyClick}
-                type='button'
-                id='button-addon2'
               >
                 Copy
-              </button>
-            </div>
-          </div>
-
-          <div className='row'>
-            <div className='copy-btn col-md-6'>
-              {/* <button type="copy" onClick={handleSendSMSClick} className="copy-button btn btn-primary mb-3">Send link as SMS</button> */}
-
-              <button
-                type='button'
-                className='copy-button btn btn-primary mb-3'
-                data-bs-toggle='modal'
-                data-bs-target='#exampleModal'
-              >
-                Send link as SMS
-              </button>
-
-              <div
-                className='modal fade'
-                id='exampleModal'
-                tabIndex='-1'
-                aria-labelledby='exampleModalLabel'
-                aria-hidden='true'
-              >
-                <div className='modal-dialog'>
-                  <div className='modal-content'>
-                    <div className='modal-header'>
-                      <h5 className='modal-title' id='exampleModalLabel'>
-                        Enter the Mobile Number
-                      </h5>
-                      {/* <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> */}
-                    </div>
-                    <div className='modal-body'>
-                      <input
-                        type='text'
-                        className='form-control'
-                        id='phNumber'
-                        value={phNumber}
-                        onChange={handleNumberChange}
-                      />
-                    </div>
-                    <div className='modal-footer'>
-                      <button
-                        type='button'
-                        className='btn btn-secondary'
-                        data-bs-dismiss='modal'
-                      >
-                        Close
-                      </button>
-                      <button
-                        type='button'
-                        className='btn btn-primary'
-                        onClick={handleSendSMSClick}
-                        data-bs-dismiss='modal'
-                      >
-                        Send SMS
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* <i onClick={handleCopyClick} className="fa-solid fa-clipboard"></i> */}
-            </div>
-            <div className='col-md-6'>
-              <a className='QR-icon' href=''>
-                <i onClick={handleQRClick} className='fa-solid fa-qrcode'></i>
-              </a>
-            </div>
-          </div>
-        </div>
+              </Button>
+            </ButtonGroup>
+          </InputGroup>
+        </Container>
       </div>
     </>
   );
 };
 
-export default NewURL;
+export default URLshortener;

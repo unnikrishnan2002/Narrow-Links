@@ -105,7 +105,7 @@ const NewURL = () => {
             <div className='col-auto form'>
               <input
                 type='text'
-                className='link-box form-control '
+                className='link-box form-control'
                 id='inputUrl'
                 placeholder='Paste URL to shorten'
                 value={url}
