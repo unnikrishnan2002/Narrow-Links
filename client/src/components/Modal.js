@@ -47,7 +47,8 @@ export function SMSmodal(props) {
         show={show}
         onHide={handleClose}
         backdrop='static'
-        keyboard={false}
+        keyboard={true}
+        centered
       >
         <Modal.Header closeButton>
           <Modal.Title>Enter the Mobile Number</Modal.Title>
