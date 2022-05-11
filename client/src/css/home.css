@@ -1,12 +1,27 @@
 /* Write your NewURL.js file's css here  */
+
+/*****************************************
+Table Of Contents:
+- Global Setup 
+- Animation
+- Bottons
+- Input Shortener
+- Output Shortener
+- Text and Body
+- Media Queries  
+******************************************/
+
+/**********************/
+/*     Global Setup   */
+/**********************/
 * {
   margin: 0;
   padding: 0;
 }
 
-.shortener {
-  height: 96.3vh;
-}
+/**********************/
+/*     Animation     */
+/**********************/
 
 @keyframes gradient {
   0% {
@@ -22,17 +37,57 @@
   }
 }
 
+/**********************/
+/*     Bottons     */
+/**********************/
+.shorten-button {
+  width: 6.25rem;
+}
+.copy-btn {
+  padding-left: 270px;
+  font-size: 50px;
+  color: #0693f1;
+}
+.copy-button {
+  width: 10vw;
+  margin: 0 10vw 0 0;
+}
+.QR-icon {
+  font-size: 50px;
+  height: auto;
+  width: 3vw;
+  margin: 5vw 5vw 0 10vw;
+}
+
+/**********************/
+/*  Input Shortener   */
+/**********************/
+.link-box {
+  font-size: 20px;
+  width: 31.25rem;
+  margin-bottom: 15px;
+}
+/**********************/
+/* Output Shortener  */
+/**********************/
+.narrowurl {
+  height: auto;
+  width: 25vw;
+  margin: auto;
+}
+
+/**********************/
+/*    Text and Body   */
+/**********************/
+
 div.container {
   width: 100%;
   height: 100%;
   display: flex;
+  margin: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.download-button {
-  margin: 5% 3% 5% 0;
 }
 
 .narrow-links {
@@ -43,58 +98,31 @@ div.container {
   margin-right: 3.125rem;
 }
 
-.link-box {
-  font-size: 20px;
-  width: 31.25rem;
-  margin-bottom: 15px;
-}
+/**********************/
+/*    Media Queries   */
+/**********************/
 
-.shorten-button {
-  width: 6.25rem;
+@media only screen and (max-width: 768px) {
+  /* For small screens/Mobile devices */
+  .QR-icon {
+    margin: 5vw 50vw 0 50vw;
+  }
+  .copy-button {
+    width: 25vw;
+    margin: auto;
+  }
+  .shorten-button {
+    width: 20vw;
+    margin: auto;
+  }
+  .narrowurl {
+    width: 35vw;
+    margin: auto;
+  }
+  .link-box {
+    font-size: 20px;
+    width: 60vw;
+    margin: auto;
+  }
 }
-
-.social-links {
-  background-color: #fff;
-  text-align: center;
-  color: #000;
-  padding: 2% 15%;
-  height: 17vh;
-}
-
-.social-icons {
-  margin: 20px 10px;
-}
-
-.copyright {
-  font-family: 'oswald', serif;
-  margin: 40px;
-  padding-right: 20px;
-}
-
-.downloads {
-  padding-right: 40px;
-}
-
-.copy-btn {
-  /* margin-top: 10px; */
-  padding-left: 270px;
-  font-size: 50px;
-  color: rgb(6, 147, 241);
-}
-
-.QR-icon {
-  font-size: 50px;
-  margin-right: 500px;
-  margin-left: 50px;
-  margin-top: 50px;
-}
-
-.narrowurl {
-  /* font-size: 10px; */
-  border: solid 2px black;
-  /* padding: 3px; */
-  /* background-color: #b5b3bb; */
-  margin-right: 70px;
-}
-
 /* Code from here*/

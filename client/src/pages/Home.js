@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
-import '../css/home.css'
+import '../css/home.css';
 
 const NewURL = () => {
+  const [url, setUrl] = useState('');
+  const [narrowUrl, setNarrowUrl] = useState('');
+  const [phNumber, setPhNumber] = useState('');
 
-  const [url, setUrl] = useState("");
-  const [narrowUrl, setNarrowUrl] = useState("");
-  const [phNumber, setPhNumber] = useState("");
-
-  let finalUrl = "http://nrly.herokuapp.com/";
+  let finalUrl = 'http://nrly.herokuapp.com/';
 
   const handleOnClick = async (e) => {
     e.preventDefault();
-    const response = await fetch('https://nrly.herokuapp.com/api/url/narrowurl', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        originalUrl: url
-      })
-    });
+    const response = await fetch(
+      'https://nrly.herokuapp.com/api/url/narrowurl',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          originalUrl: url,
+        }),
+      }
+    );
 
     const jsonResponse = await response.json();
     // console.log(jsonResponse);
@@ -30,33 +32,36 @@ const NewURL = () => {
       method: 'GET',
     });
     // console.log(jsonGetUrl);
-  }
+  };
 
-
-  finalUrl = narrowUrl ? "http://nrly.herokuapp.com/" + narrowUrl : "http://nrly.herokuapp.com/";
+  finalUrl = narrowUrl
+    ? 'http://nrly.herokuapp.com/' + narrowUrl
+    : 'http://nrly.herokuapp.com/';
 
   const handleChange = (event) => {
-    setUrl(event.target.value)
+    setUrl(event.target.value);
     // console.log(url);
-  }
+  };
 
   const handleNumberChange = (event) => {
     setPhNumber(event.target.value);
     console.log(phNumber);
-  }
+  };
 
   const handleCopyClick = () => {
     navigator.clipboard.writeText(finalUrl);
-    alert("Narrow URL Copied!!");
-  }
+    alert('Narrow URL Copied!!');
+  };
 
   const handleQRClick = () => {
-    let input = document.querySelector(".form input");
+    let input = document.querySelector('.form input');
     let userInput = input.value;
-    let imgSrc = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + userInput;
+    let imgSrc =
+      'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' +
+      userInput;
     window.open(imgSrc);
-  }
-  
+  };
+
   const handleKeypress = (e) => {
     //it triggers by pressing the enter key
     if (e.keyCode === 13) {
@@ -67,22 +72,25 @@ const NewURL = () => {
   const handleSendSMSClick = async (e) => {
     e.preventDefault();
     setTimeout(() => {
-      alert("SMS will be sent shortly")
+      alert('SMS will be sent shortly');
     }, 1000);
 
-    const response = await fetch('https://nrly.herokuapp.com/api/sms/twiliosms', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        phoneNumber: phNumber,
-        data: finalUrl
-      })
-    });
+    const response = await fetch(
+      'https://nrly.herokuapp.com/api/sms/twiliosms',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          phoneNumber: phNumber,
+          data: finalUrl,
+        }),
+      }
+    );
     const jsonResponse = await response.json();
     console.log(jsonResponse);
-  }
+  };
   return (
     // This is the HTML data of the homepage ie; the page in which we give original Url and get the short Url
 
@@ -91,7 +99,7 @@ const NewURL = () => {
     // For the css for this page as well as the navbar page there are seperate files made there named home.css and navbar.css just write ypur css there and it will automatically appear here because i have imported it here and Navbar.js files
     <>
       <div className='shortener'>
-        <div className=' container my-4'>
+        <div className='container my-4'>
           <h1 className='narrow-links'>Narrow-Links</h1>
           <form className='row g-3'>
             <div className='col-auto form'>
@@ -141,9 +149,7 @@ const NewURL = () => {
           </div>
 
           <div className='row'>
-            <div className='copy-btn col-md-6'>
-              {/* <button type="copy" onClick={handleSendSMSClick} className="copy-button btn btn-primary mb-3">Send link as SMS</button> */}
-
+            <div className='copy-btn col-lg-6'>
               <button
                 type='button'
                 className='copy-button btn btn-primary mb-3'
@@ -166,7 +172,6 @@ const NewURL = () => {
                       <h5 className='modal-title' id='exampleModalLabel'>
                         Enter the Mobile Number
                       </h5>
-                      {/* <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> */}
                     </div>
                     <div className='modal-body'>
                       <input
@@ -209,6 +214,6 @@ const NewURL = () => {
       </div>
     </>
   );
-}
+};
 
-export default NewURL
+export default NewURL;
