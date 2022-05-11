@@ -56,7 +56,7 @@ Another recent addition is a simple one-click button for sending the link to who
   
    - Create a file named `.env` then enter the following data inside it 
      
-     ```
+     ```env
      TWILIO_ACC_SID = "Get your twilio account SID from your console"
      TWILIO_AUTHTOKEN = "Get your twilio Auth-Token from your console"
      TWILIO_NUMBER = "Get your twilio Number from your console"
