@@ -44,20 +44,17 @@ Table Of Contents:
   width: 6.25rem;
   margin: 0 5px;
 }
-.copy-btn {
-  padding-left: 270px;
-  font-size: 50px;
-  color: #0693f1;
-}
-.copy-button {
-  width: 10vw;
-  margin: 0 10vw 0 0;
+.sms-button {
+  width: fit-content;
+  height: auto;
+  margin: auto 5vw auto 0;
 }
 .QR-icon {
   font-size: 50px;
   height: auto;
-  width: 3vw;
-  margin: 5vw 5vw 0 10vw;
+  cursor: pointer;
+  color: #0d6efd;
+  margin: auto 0 auto 5vw;
 }
 
 /**********************/
@@ -65,7 +62,7 @@ Table Of Contents:
 /**********************/
 .link-box {
   font-size: 20px;
-  width: 31.25rem;
+  width: 55vw;
   margin: 15px;
 }
 /**********************/
@@ -73,17 +70,21 @@ Table Of Contents:
 /**********************/
 .narrowurl {
   height: auto;
-  width: 25vw;
+  width: 45vmax;
   margin: auto;
 }
 
 /**********************/
 /*    Text and Body   */
 /**********************/
+.container {
+  margin: 5px 0;
+}
 
 div.container {
   width: 100%;
   height: 100%;
+  padding: 5px 0;
   display: flex;
   margin: auto;
   flex-direction: column;
@@ -106,26 +107,26 @@ div.container {
 /*    Media Queries   */
 /**********************/
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 576px) {
   /* For small screens/Mobile devices */
-  .QR-icon {
-    margin: 5vw 50vw 0 50vw;
-  }
-  .copy-button {
-    width: 25vw;
+  .sms-button {
+    width: fit-content;
     margin: auto;
   }
   .shorten-button {
-    width: 20vw;
-    margin: auto;
+    width: fit-content;
+    margin: auto 1vw;
+  }
+  #inputUrl {
+    width: 65vw;
   }
   .narrowurl {
-    width: 35vw;
+    width: 70%;
     margin: auto;
   }
   .link-box {
     font-size: 20px;
-    width: 60vw;
+    width: 90vw;
     margin: auto;
   }
 }

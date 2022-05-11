@@ -6,12 +6,12 @@ import {
   ButtonGroup,
   Button,
 } from 'react-bootstrap';
+import { SMSmodal } from '../components/Modal';
 import '../css/home.css';
 
 const URLshortener = () => {
   const [url, setUrl] = useState('');
   const [narrowUrl, setNarrowUrl] = useState('');
-  const [phNumber, setPhNumber] = useState('');
 
   let finalUrl = 'http://nrly.herokuapp.com/';
 
@@ -31,28 +31,17 @@ const URLshortener = () => {
     );
 
     const jsonResponse = await response.json();
-    // console.log(jsonResponse);
     setUrl(jsonResponse.originalUrl);
     setNarrowUrl(jsonResponse.shortUrl);
-    // console.log(url)
     const getUrl = await fetch(`/${narrowUrl}`, {
       method: 'GET',
     });
-    // console.log(jsonGetUrl);
   };
 
-  finalUrl = narrowUrl
-    ? 'http://nrly.herokuapp.com/' + narrowUrl
-    : 'http://nrly.herokuapp.com/';
+  finalUrl = narrowUrl ? 'http://nrly.herokuapp.com/' + narrowUrl : '';
 
   const handleChange = (event) => {
     setUrl(event.target.value);
-    // console.log(url);
-  };
-
-  const handleNumberChange = (event) => {
-    setPhNumber(event.target.value);
-    console.log(phNumber);
   };
 
   const handleCopyClick = () => {
@@ -61,11 +50,9 @@ const URLshortener = () => {
   };
 
   const handleQRClick = () => {
-    let input = document.querySelector('.form input');
-    let userInput = input.value;
     let imgSrc =
       'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' +
-      userInput;
+      finalUrl;
     window.open(imgSrc);
   };
 
@@ -76,28 +63,6 @@ const URLshortener = () => {
     }
   };
 
-  const handleSendSMSClick = async (e) => {
-    e.preventDefault();
-    setTimeout(() => {
-      alert('SMS will be sent shortly');
-    }, 1000);
-
-    const response = await fetch(
-      'https://nrly.herokuapp.com/api/sms/twiliosms',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          phoneNumber: phNumber,
-          data: finalUrl,
-        }),
-      }
-    );
-    const jsonResponse = await response.json();
-    console.log(jsonResponse);
-  };
   return (
     // This is the HTML data of the homepage ie; the page in which we give original Url and get the short Url
 
@@ -108,7 +73,7 @@ const URLshortener = () => {
       <div className='shortener'>
         <Container className='narrow-links'>Narrow-Links</Container>
         <Container>
-          <InputGroup className='mb-3 link-box'>
+          <InputGroup className='mb-4 link-box'>
             <FormControl
               aria-label='Paste URL to shorten'
               type='text'
@@ -117,7 +82,6 @@ const URLshortener = () => {
               value={url}
               onChange={handleChange}
               onKeyPress={handleKeypress}
-              data-testid='input'
             />
             <ButtonGroup aria-label='Narrow Link'>
               <Button
@@ -129,15 +93,13 @@ const URLshortener = () => {
               </Button>
             </ButtonGroup>
           </InputGroup>
-          <InputGroup className='mb-3 narrowurl'>
+          <InputGroup className='mb-4 narrowurl'>
             <FormControl
               aria-label='Shortened link will appear here'
               type='text'
-              id='inputUrl'
               placeholder='Shortened link will appear here'
-              onChange={handleChange}
-              onKeyPress={handleKeypress}
-              data-testid='input'
+              value={finalUrl}
+              readOnly
             />
             <ButtonGroup aria-label='Narrow Link'>
               <Button
@@ -149,6 +111,14 @@ const URLshortener = () => {
               </Button>
             </ButtonGroup>
           </InputGroup>
+          <ButtonGroup aria-label='Send link as SMS'>
+            {/* Send link as SMS button */}
+            <SMSmodal finalUrl={finalUrl} />
+            {/* QR link */}
+            <div className='QR-icon' onClick={handleQRClick}>
+              <i className='fa-solid fa-qrcode'></i>
+            </div>
+          </ButtonGroup>
         </Container>
       </div>
     </>
