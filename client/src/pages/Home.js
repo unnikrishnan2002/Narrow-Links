@@ -1,8 +1,8 @@
-import { OutputUrl } from './OutputUrl';
+import { OutputUrl } from './Sections/OutputUrl';
 import React, { useState } from 'react';
 import '../css/home.css';
-import { ShareLink } from './ShareLink';
-import { InputUrl } from './InputUrl';
+import { ShareLink } from './Sections/ShareLink';
+import { InputUrl } from './Sections/InputUrl';
 
 const URLshortener = () => {
   /*Input Link Funtion*/
