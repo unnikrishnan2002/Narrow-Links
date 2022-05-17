@@ -8,7 +8,6 @@ export function OutputUrl({ finalUrl, handleCopyClick }) {
         type='text'
         className='form-control'
         placeholder='Shortened link will appear here'
-        aria-describedby='button-addon2'
         value={finalUrl}
         readOnly
       />

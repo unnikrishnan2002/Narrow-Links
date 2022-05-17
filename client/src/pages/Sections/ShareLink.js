@@ -14,6 +14,7 @@ export function ShareLink({
         class='btn btn-primary sms-button'
         data-bs-toggle='modal'
         data-bs-target='#exampleModal'
+        aria-label='send sms'
       >
         Send link as SMS
       </button>
@@ -32,9 +33,9 @@ export function ShareLink({
         <div class='modal-dialog'>
           <div class='modal-content'>
             <div class='modal-header'>
-              <h5 class='modal-title' id='exampleModalLabel'>
+              <h2 class='modal-title' id='exampleModalLabel'>
                 SEND VIA SMS
-              </h5>
+              </h2>
               <button
                 type='button'
                 class='btn-close'

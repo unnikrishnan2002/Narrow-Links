@@ -9,9 +9,9 @@ export const NavBar = () => {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
       <div className='container-fluid'>
-        <a className='navbar-brand mx-auto' href='#shortener'>
+        <span className='navbar-brand mx-auto' href='#shortener'>
           &nbsp;<i className='fa-solid fa-link'></i>
-        </a>
+        </span>
         &nbsp;
         <a className='navbar-brand' href='#shortener'>
           Narrow Links

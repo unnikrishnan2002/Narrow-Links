@@ -102,7 +102,7 @@ const URLshortener = () => {
     // For the css for this page as well as the navbar page there are seperate files made there named home.css and navbar.css just write ypur css there and it will automatically appear here because i have imported it here and Navbar.js files
     <>
       <div className='shortener' id='shortener'>
-        <h4 className='narrow-links text-center'>Narrow-Links</h4>
+        <h1 className='narrow-links text-center'>Narrow-Links</h1>
         <InputUrl
           url={url}
           handleChange={handleChange}
