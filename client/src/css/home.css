@@ -42,7 +42,8 @@ Table Of Contents:
 /**********************/
 .shorten-button {
   width: 6.25rem;
-  margin: 0 5px;
+  height: 3rem;
+  margin: auto;
 }
 .sms-button {
   width: fit-content;
@@ -61,6 +62,7 @@ Table Of Contents:
 /*  Input Shortener   */
 /**********************/
 .link-box {
+  height: 3rem;
   font-size: 20px;
   width: 45vw;
   margin: 15px;
@@ -70,20 +72,21 @@ Table Of Contents:
 /**********************/
 .narrowurl {
   height: auto;
-  width: 35vmax;
+  width: 40vmax;
   margin: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /**********************/
 /*    Text and Body   */
 /**********************/
-.container {
-  margin: 5px 0;
-}
 
 div.container {
   width: 100%;
   height: 100%;
+  margin: 5px 0;
   padding: 5px 0;
   display: flex;
   margin: auto;
@@ -100,7 +103,17 @@ div.container {
   margin-right: 3.125rem;
 }
 .shortener {
-  margin: 25vh auto;
+  margin: 5vh auto;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /**********************/
@@ -109,16 +122,21 @@ div.container {
 
 @media only screen and (max-width: 576px) {
   /* For small screens/Mobile devices */
+  div.container {
+    width: 100%;
+    height: 100%;
+    padding: 5px 2vmin;
+  }
   .sms-button {
     width: fit-content;
     margin: auto;
   }
   .shorten-button {
     width: fit-content;
-    margin: auto 1vw;
+    margin: auto 1vmin;
   }
   #inputUrl {
-    width: 65vw;
+    width: 85vw;
   }
   .narrowurl {
     width: 70%;

@@ -1,10 +1,13 @@
 import { Navigation } from './components/Nav';
-import URLshortener from './pages/Shortener';
+import { NavBar } from './components/Navbar';
+// import URLshortener from './pages/Shortener';
+import URLshortener from './pages/Home';
 
 function App() {
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
+      <NavBar />
       <URLshortener />
     </>
   );

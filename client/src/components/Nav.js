@@ -18,7 +18,7 @@ export const Navigation = () => {
         <Nav className='me-auto'></Nav>
         <Nav>
           <Nav.Link href='#'>
-            <i class='fa-solid fa-house'></i>
+            <i className='fa-solid fa-house'></i>
             Home
           </Nav.Link>
           <Nav.Link
@@ -29,7 +29,7 @@ export const Navigation = () => {
             GitHub
           </Nav.Link>
           <Nav.Link href='#'>
-            <i class='fa-solid fa-id-badge'></i>
+            <i className='fa-solid fa-id-badge'></i>
             Contact us
           </Nav.Link>
           <Nav.Link className='nav-item log-in'>
