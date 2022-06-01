@@ -38,13 +38,14 @@ export const NavBar = () => {
               <a
                 className='nav-link active'
                 target='_blank'
+                rel='noreferrer'
                 href='https://github.com/unnikrishnan2002/Narrow-Links'
               >
                 <i className='fa-brands fa-github'></i> Github
               </a>
             </li>
             <li className='nav-item'>
-              <a className='nav-link active' href='#'>
+              <a className='nav-link active' href=''>
                 <i className='fa-solid fa-id-badge'></i>Contact us
               </a>
             </li>
