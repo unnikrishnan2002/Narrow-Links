@@ -1,19 +1,31 @@
 /* Write your NewURL.js file's css here  */
+
+/*****************************************
+Table Of Contents:
+- Global Setup 
+- Animation
+- Bottons
+- Input Shortener
+- Output Shortener
+- Text and Body
+- Media Queries  
+******************************************/
+
+/**********************/
+/*     Global Setup   */
+/**********************/
 * {
   margin: 0;
   padding: 0;
 }
 
-.shortener {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  height: 96.3vh;
-}
+/**********************/
+/*     Animation     */
+/**********************/
 
 @keyframes gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 0%;
   }
 
   50% {
@@ -21,21 +33,66 @@
   }
 
   100% {
-    background-position: 0% 50%;
+    background-position: 0% 0%;
   }
 }
+
+/**********************/
+/*     Bottons     */
+/**********************/
+.shorten-button {
+  width: 6.25rem;
+  height: 3rem;
+  margin: auto;
+}
+.sms-button {
+  width: fit-content;
+  height: auto;
+  margin: auto 5vw auto 0;
+}
+.QR-icon {
+  font-size: 50px;
+  height: auto;
+  cursor: pointer;
+  color: #0d6efd;
+  margin: auto 0 auto 5vw;
+}
+
+/**********************/
+/*  Input Shortener   */
+/**********************/
+.link-box {
+  height: 3rem;
+  font-size: 20px;
+  width: 45vw;
+  margin: 15px;
+}
+/**********************/
+/* Output Shortener  */
+/**********************/
+.narrowurl {
+  height: auto;
+  width: 40vmax;
+  margin: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/**********************/
+/*    Text and Body   */
+/**********************/
 
 div.container {
   width: 100%;
   height: 100%;
+  margin: 5px 0;
+  padding: 5px 0;
   display: flex;
+  margin: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.download-button {
-  margin: 5% 3% 5% 0;
 }
 
 .narrow-links {
@@ -45,59 +102,50 @@ div.container {
   margin-bottom: 50px;
   margin-right: 3.125rem;
 }
-
-.link-box {
-  font-size: 20px;
-  width: 31.25rem;
-  margin-bottom: 15px;
+.shortener {
+  margin: 5vh auto;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
 }
 
-.shorten-button {
-  width: 6.25rem;
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-.social-links {
-  background-color: #fff;
-  text-align: center;
-  color: #000;
-  padding: 2% 15%;
-  height: 17vh;
-}
+/**********************/
+/*    Media Queries   */
+/**********************/
 
-.social-icons {
-  margin: 20px 10px;
+@media only screen and (max-width: 576px) {
+  /* For small screens/Mobile devices */
+  div.container {
+    width: 100%;
+    height: 100%;
+    padding: 5px 2vmin;
+  }
+  .sms-button {
+    width: fit-content;
+    margin: auto;
+  }
+  .shorten-button {
+    width: fit-content;
+    margin: auto 1vmin;
+  }
+  #inputUrl {
+    width: 85vw;
+  }
+  .narrowurl {
+    width: 70%;
+    margin: auto;
+  }
+  .link-box {
+    font-size: 20px;
+    width: 90vw;
+    margin: auto;
+  }
 }
-
-.copyright {
-  font-family: 'oswald', serif;
-  margin: 40px;
-  padding-right: 20px;
-}
-
-.downloads {
-  padding-right: 40px;
-}
-
-.copy-btn {
-  /* margin-top: 10px; */
-  padding-left: 270px;
-  font-size: 50px;
-  color: rgb(6, 147, 241);
-}
-
-.QR-icon {
-  font-size: 50px;
-  margin-right: 500px;
-  margin-left: 50px;
-  margin-top: 50px;
-}
-
-.narrowurl {
-  /* font-size: 10px; */
-  border: solid 2px black;
-  /* padding: 3px; */
-  /* background-color: #b5b3bb; */
-  margin-right: 70px;
-}
-
 /* Code from here*/
