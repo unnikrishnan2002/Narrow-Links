@@ -78,7 +78,9 @@ Table Of Contents:
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.narrowurl .btn {
+  width: 4rem;
+}
 /**********************/
 /*    Text and Body   */
 /**********************/

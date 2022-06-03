@@ -5,10 +5,14 @@ import { ShareLink } from './Sections/ShareLink';
 import { InputUrl } from './Sections/InputUrl';
 
 const URLshortener = () => {
-  /*Input Link Funtion*/
+  // Request loading state
+  const [loading, setLoading] = useState(false);
+
+  /*Input Link Function*/
   const [url, setUrl] = useState('');
   const handleOnClick = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setNarrowUrl('Loading...');
     const response = await fetch(
       'https://nrly.herokuapp.com/api/url/narrowurl',
@@ -25,6 +29,7 @@ const URLshortener = () => {
 
     const jsonResponse = await response.json();
     setUrl(jsonResponse.originalUrl);
+    setLoading(false);
     setNarrowUrl(jsonResponse.shortUrl);
     const getUrl = await fetch(`/${narrowUrl}`, {
       method: 'GET',
@@ -40,7 +45,7 @@ const URLshortener = () => {
       handleOnClick();
     }
   };
-  /*End Input Link Funtion*/
+  /*End Input Link Function*/
 
   /* Start Output Url Functions*/
   const [narrowUrl, setNarrowUrl] = useState('');
@@ -97,9 +102,9 @@ const URLshortener = () => {
   return (
     // This is the HTML data of the homepage ie; the page in which we give original Url and get the short Url
 
-    // So basically put all your html data here for the page . Please note that you don't have to write the html for navbar here. For Navbar there is seperate file called Navbar.js in src/components/Navbar.js. Just write the navbar code there and it will appear here
+    // So basically put all your html data here for the page . Please note that you don't have to write the html for navbar here. For Navbar there is separate file called Navbar.js in src/components/Navbar.js. Just write the navbar code there and it will appear here
 
-    // For the css for this page as well as the navbar page there are seperate files made there named home.css and navbar.css just write ypur css there and it will automatically appear here because i have imported it here and Navbar.js files
+    // For the css for this page as well as the navbar page there are separate files made there named home.css and navbar.css just write your css there and it will automatically appear here because i have imported it here and Navbar.js files
     <>
       <div className='shortener' id='shortener'>
         <h1 className='narrow-links text-center'>Narrow-Links</h1>
@@ -110,7 +115,11 @@ const URLshortener = () => {
           handleOnClick={handleOnClick}
         />
         <div className='container my-4 mx-auto'>
-          <OutputUrl finalUrl={finalUrl} handleCopyClick={handleCopyClick} />
+          <OutputUrl
+            finalUrl={finalUrl}
+            handleCopyClick={handleCopyClick}
+            loading={loading}
+          />
           <ShareLink
             handleQRClick={handleQRClick}
             phNumber={phNumber}
