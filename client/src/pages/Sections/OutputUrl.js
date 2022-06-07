@@ -1,5 +1,5 @@
 import React from 'react';
-export function OutputUrl({ finalUrl, handleCopyClick }) {
+export function OutputUrl({ finalUrl, handleCopyClick, loading }) {
   return (
     <div className='input-group mb-3 narrowurl '>
       <input
@@ -11,15 +11,31 @@ export function OutputUrl({ finalUrl, handleCopyClick }) {
         value={finalUrl}
         readOnly
       />
-      <button
-        data-testid='Copy'
-        aria-label='Copy Link'
-        className='btn btn-success'
-        onClick={handleCopyClick}
-        type='button'
-      >
-        Copy
-      </button>
+      {loading ? (
+        <button
+          className='btn btn-success'
+          aria-label='Copying Link'
+          type='button'
+          disabled
+        >
+          <span
+            class='spinner-border spinner-border-sm'
+            role='status'
+            aria-hidden='true'
+          ></span>
+          <span class='sr-only'>Loading...</span>
+        </button>
+      ) : (
+        <button
+          data-testid='Copy'
+          aria-label='Copy Link'
+          className='btn btn-success'
+          onClick={handleCopyClick}
+          type='button'
+        >
+          Copy
+        </button>
+      )}
     </div>
   );
 }

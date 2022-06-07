@@ -91,3 +91,8 @@ Another recent addition is a simple one-click button for sending the link to who
 7. Push your changes to your forked repository.
 
     `$ git push origin <branch-name>`
+    
+    
+##  ⚖️ License
+
+This project is [MIT licensed](./LICENSE.md).
