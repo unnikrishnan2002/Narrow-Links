@@ -1,0 +1,60 @@
+/* Write your Navbar.js file's css here  */
+/*****************************************
+Table Of Contents:
+- Font Awesome
+- Text
+- Buttons
+- Media Queries  
+******************************************/
+
+/**********************/
+/*    Font Awesome    */
+/**********************/
+.fa-brands,
+.fa-solid {
+  margin: 0 10px;
+}
+
+/**********************/
+/*        Text       */
+/**********************/
+.navbar-brand {
+  font-family: 'Ubuntu';
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-link {
+  font-size: 1.4rem;
+  margin: 3px 0 0 0;
+  font-family: 'Montserrat';
+}
+
+/**********************/
+/*      Buttons       */
+/**********************/
+
+a {
+  font-family: 'Rubik', sans-serif;
+}
+
+.log-in {
+  margin: 0.3rem;
+}
+
+/**********************/
+/*    Media Queries   */
+/**********************/
+
+@media (min-width: 992px) {
+  .fa-id-badge,
+  .fa-house,
+  .fa-github {
+    visibility: hidden;
+  }
+
+  .nav-link:hover > .fa-brands,
+  .nav-link:hover > .fa-solid {
+    visibility: visible !important;
+  }
+}
