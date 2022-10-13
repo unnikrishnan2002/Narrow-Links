@@ -14,6 +14,9 @@ export function InputUrl({ url, handleChange, handleKeypress, handleOnClick }) {
           onChange={handleChange}
           onKeyPress={handleKeypress}
         />
+        if (url == "") {
+          alert("You have Input Empty URL!!")
+        }
         <button
           type='submit'
           className='shorten-button btn btn-primary mb-3'
