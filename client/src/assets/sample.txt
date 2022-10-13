@@ -1,0 +1,3 @@
+Ignore this file .This is only placed here because github wont allow to push empty folders
+
+This folder is basically made to put your images files etc

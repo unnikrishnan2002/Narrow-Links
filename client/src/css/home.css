@@ -1,0 +1,153 @@
+/* Write your NewURL.js file's css here  */
+
+/*****************************************
+Table Of Contents:
+- Global Setup 
+- Animation
+- Bottons
+- Input Shortener
+- Output Shortener
+- Text and Body
+- Media Queries  
+******************************************/
+
+/**********************/
+/*     Global Setup   */
+/**********************/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/**********************/
+/*     Animation     */
+/**********************/
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/**********************/
+/*     Bottons     */
+/**********************/
+.shorten-button {
+  width: 6.25rem;
+  height: 3rem;
+  margin: auto;
+}
+.sms-button {
+  width: fit-content;
+  height: auto;
+  margin: auto 5vw auto 0;
+}
+.QR-icon {
+  font-size: 50px;
+  height: auto;
+  cursor: pointer;
+  color: #0d6efd;
+  margin: auto 0 auto 5vw;
+}
+
+/**********************/
+/*  Input Shortener   */
+/**********************/
+.link-box {
+  height: 3rem;
+  font-size: 20px;
+  width: 45vw;
+  margin: 15px;
+}
+/**********************/
+/* Output Shortener  */
+/**********************/
+.narrowurl {
+  height: auto;
+  width: 40vmax;
+  margin: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.narrowurl .btn {
+  width: 4rem;
+}
+/**********************/
+/*    Text and Body   */
+/**********************/
+
+div.container {
+  width: 100%;
+  height: 100%;
+  margin: 5px 0;
+  padding: 5px 0;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.narrow-links {
+  font-family: 'Lobster', cursive;
+  font-size: 60px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-right: 3.125rem;
+}
+.shortener {
+  margin: 5vh auto;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/**********************/
+/*    Media Queries   */
+/**********************/
+
+@media only screen and (max-width: 576px) {
+  /* For small screens/Mobile devices */
+  div.container {
+    width: 100%;
+    height: 100%;
+    padding: 5px 2vmin;
+  }
+  .sms-button {
+    width: fit-content;
+    margin: auto;
+  }
+  .shorten-button {
+    width: fit-content;
+    margin: auto 1vmin;
+  }
+  #inputUrl {
+    width: 85vw;
+  }
+  .narrowurl {
+    width: 70%;
+    margin: auto;
+  }
+  .link-box {
+    font-size: 20px;
+    width: 90vw;
+    margin: auto;
+  }
+}
+/* Code from here*/
