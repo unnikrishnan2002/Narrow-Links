@@ -1,6 +1,9 @@
 import React from 'react';
 
 export function InputUrl({ url, handleChange, handleKeypress, handleOnClick }) {
+    if (url == "") {
+          alert("You have Input Empty URL!!")
+     }
   return (
     <div className='container text-center my-4 mx-auto'>
       <div className='input-group mb-3 '>
@@ -14,9 +17,7 @@ export function InputUrl({ url, handleChange, handleKeypress, handleOnClick }) {
           onChange={handleChange}
           onKeyPress={handleKeypress}
         />
-        if (url == "") {
-          alert("You have Input Empty URL!!")
-        }
+
         <button
           type='submit'
           className='shorten-button btn btn-primary mb-3'
