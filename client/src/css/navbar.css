@@ -12,6 +12,7 @@ Table Of Contents:
 /**********************/
 .fa-brands,
 .fa-solid {
+  visibility: visible !important;
   margin: 0 10px;
 }
 
@@ -19,7 +20,7 @@ Table Of Contents:
 /*        Text       */
 /**********************/
 .navbar-brand {
-  font-family: 'Ubuntu';
+  font-family: "Ubuntu";
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -27,7 +28,7 @@ Table Of Contents:
 .nav-link {
   font-size: 1.4rem;
   margin: 3px 0 0 0;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
 }
 
 /**********************/
@@ -35,7 +36,7 @@ Table Of Contents:
 /**********************/
 
 a {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 .log-in {
