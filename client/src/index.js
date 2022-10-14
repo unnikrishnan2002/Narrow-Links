@@ -1,21 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Auth0Provider } from '@auth0/auth0-react';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(
   <Auth0Provider
-    domain='dev-el97dkmy.us.auth0.com'
-    clientId='orQ2PUfwiZ01KeXFfDYlyJNju0ANU15W'
+    domain="dev-el97dkmy.us.auth0.com"
+    clientId="orQ2PUfwiZ01KeXFfDYlyJNju0ANU15W"
     redirectUri={window.location.origin}
   >
     <React.StrictMode>
       <App />
     </React.StrictMode>
   </Auth0Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

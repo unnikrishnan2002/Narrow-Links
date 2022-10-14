@@ -1,25 +1,25 @@
-import { OutputUrl } from './Sections/OutputUrl';
-import React, { useState } from 'react';
-import '../css/home.css';
-import { ShareLink } from './Sections/ShareLink';
-import { InputUrl } from './Sections/InputUrl';
+import { OutputUrl } from "./Sections/OutputUrl";
+import React, { useState } from "react";
+import "../css/home.css";
+import { ShareLink } from "./Sections/ShareLink";
+import { InputUrl } from "./Sections/InputUrl";
 
 const URLshortener = () => {
   // Request loading state
   const [loading, setLoading] = useState(false);
 
   /*Input Link Function*/
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState("");
   const handleOnClick = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setNarrowUrl('Loading...');
+    setNarrowUrl("Loading...");
     const response = await fetch(
-      'https://nrly.herokuapp.com/api/url/narrowurl',
+      "https://nrly.herokuapp.com/api/url/narrowurl",
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           originalUrl: url,
@@ -32,7 +32,7 @@ const URLshortener = () => {
     setLoading(false);
     setNarrowUrl(jsonResponse.shortUrl);
     const getUrl = await fetch(`/${narrowUrl}`, {
-      method: 'GET',
+      method: "GET",
     });
   };
 
@@ -48,20 +48,20 @@ const URLshortener = () => {
   /*End Input Link Function*/
 
   /* Start Output Url Functions*/
-  const [narrowUrl, setNarrowUrl] = useState('');
-  let finalUrl = 'http://nrly.herokuapp.com/';
+  const [narrowUrl, setNarrowUrl] = useState("");
+  let finalUrl = "http://nrly.herokuapp.com/";
 
-  finalUrl = narrowUrl ? 'http://nrly.herokuapp.com/' + narrowUrl : '';
+  finalUrl = narrowUrl ? "http://nrly.herokuapp.com/" + narrowUrl : "";
   const handleCopyClick = () => {
     navigator.clipboard.writeText(finalUrl);
-    alert('Narrow URL Copied!!');
+    alert("Narrow URL Copied!!");
   };
   /* End Output Url Functions*/
 
   /*QR Link Functions*/
   const handleQRClick = () => {
     let imgSrc =
-      'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' +
+      "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" +
       finalUrl;
     window.open(imgSrc);
   };
@@ -69,7 +69,7 @@ const URLshortener = () => {
 
   /* SMS Modal*/
   const [show, setShow] = useState(false);
-  const [phNumber, setPhNumber] = useState('');
+  const [phNumber, setPhNumber] = useState("");
 
   const handleNumberChange = (event) => {
     setPhNumber(event.target.value);
@@ -77,16 +77,16 @@ const URLshortener = () => {
   const handleSendSMSClick = async (e) => {
     e.preventDefault();
     setTimeout(() => {
-      alert('SMS will be sent shortly');
-      setPhNumber('');
+      alert("SMS will be sent shortly");
+      setPhNumber("");
     }, 1000);
 
     const response = await fetch(
-      'https://nrly.herokuapp.com/api/sms/twiliosms',
+      "https://nrly.herokuapp.com/api/sms/twiliosms",
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           phoneNumber: phNumber,
@@ -106,15 +106,15 @@ const URLshortener = () => {
 
     // For the css for this page as well as the navbar page there are separate files made there named home.css and navbar.css just write your css there and it will automatically appear here because i have imported it here and Navbar.js files
     <>
-      <div className='shortener' id='shortener'>
-        <h1 className='narrow-links text-center'>Narrow-Links</h1>
+      <div className="shortener" id="shortener">
+        <h1 className="narrow-links text-center">Narrow-Links</h1>
         <InputUrl
           url={url}
           handleChange={handleChange}
           handleKeypress={handleKeypress}
           handleOnClick={handleOnClick}
         />
-        <div className='container my-4 mx-auto'>
+        <div className="container my-4 mx-auto">
           <OutputUrl
             finalUrl={finalUrl}
             handleCopyClick={handleCopyClick}

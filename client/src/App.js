@@ -1,5 +1,5 @@
-import { NavBar } from './components/Navbar';
-import URLshortener from './pages/Home';
+import { NavBar } from "./components/Navbar";
+import URLshortener from "./pages/Home";
 
 function App() {
   return (

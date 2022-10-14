@@ -1,38 +1,39 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const Url = require('../models/Url');
+const Url = require("../models/Url");
 
+router.post("/narrowurl", async (req, res) => {
+  const { originalUrl } = req.body;
 
-router.post('/narrowurl', async (req, res) => {
+  const characters = "abcABCDEopqrsFGHIJVWXYZdKLMNOPQRSTUefghijklmntuvwxyz";
 
-    const { originalUrl } = req.body;
+  let shortUrl = "";
+  for (let i = 0; i < 5; i++) {
+    shortUrl += characters.charAt(Math.floor(Math.random() * 10));
+  }
 
-    const characters = 'abcABCDEopqrsFGHIJVWXYZdKLMNOPQRSTUefghijklmntuvwxyz';
+  let urlExists = await Url.findOne({ shortUrl });
+  if (urlExists) {
+    return res
+      .status(400)
+      .json({
+        success,
+        error: "Sorry ! A user with the same email exists already",
+      });
+  }
 
-    let shortUrl = '';
-    for (let i = 0; i < 5; i++) {
-        shortUrl += characters.charAt(Math.floor(Math.random() * 10));
-    }
+  const url = new Url({
+    originalUrl,
+    shortUrl,
+  });
 
-
-    let urlExists = await Url.findOne({ shortUrl });
-    if (urlExists) {
-      return res.status(400).json({ success, error: "Sorry ! A user with the same email exists already" })
-    }
-
-    const url = new Url({
-        originalUrl,
-        shortUrl
-    });
-
-    url.save()
-        .then(() => {
-            res.json(url);
-            // res.redirect({originalUrl});
-        })
-        .catch(err => res.status(400).json('Error: ' + err));
-
+  url
+    .save()
+    .then(() => {
+      res.json(url);
+      // res.redirect({originalUrl});
+    })
+    .catch((err) => res.status(400).json("Error: " + err));
 });
-
 
 module.exports = router;
