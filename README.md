@@ -30,6 +30,10 @@ Another recent addition is a simple one-click button for sending the link to who
 - **Auth0 Login**
 - **FontAwesome Icons**
 
+## 🏕 Design guideline
+
+Link: [https://www.figma.com/file/GGkebbJ4rTDfgFGNgXd2r4/Narrow-Links?node-id=0%3A1](https://www.figma.com/file/GGkebbJ4rTDfgFGNgXd2r4/Narrow-Links?node-id=0%3A1)
+
 ## 🚀 How to contribute ?
     
 Checkout [Contributing.md](./CONTRIBUTING.md)
