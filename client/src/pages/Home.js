@@ -15,9 +15,9 @@ const URLshortener = () => {
   const [url, setUrl] = useState("");
 
 useEffect(() => {
-    // window.setTimeout(()=>{
-    //   setShowAlerts(false)
-    // },2000)
+    window.setTimeout(()=>{
+      setShowAlerts(false)
+    },2000)
 }, [showAlerts])
 
 

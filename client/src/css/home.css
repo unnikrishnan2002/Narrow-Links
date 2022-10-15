@@ -59,10 +59,10 @@ Table Of Contents:
 }
 .alert-box{
   width: 50%;
-  float: right;
-  top:6px;
-  right:2px;
-  z-index: 500;
+  float: left;
+  top: 6px;
+  left: 2px;
+
 }
 /**********************/
 /*  Input Shortener   */
