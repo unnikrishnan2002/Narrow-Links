@@ -9,7 +9,23 @@ const URLshortener = () => {
   const [loading, setLoading] = useState(false);
 
   /*Input Link Function*/
+  const [isValid, setIsValid] = useState(false)
   const [url, setUrl] = useState("");
+
+  // CHecking for a valid URL
+  const isValidUrl = (urlString) => {
+    var urlPattern = new RegExp(
+      "^(https?:\\/\\/)?" + 
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + 
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + 
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + 
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + 
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    );
+    return !!urlPattern.test(urlString);
+  };
+
   const handleOnClick = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -30,7 +46,16 @@ const URLshortener = () => {
     const jsonResponse = await response.json();
     setUrl(jsonResponse.originalUrl);
     setLoading(false);
-    setNarrowUrl(jsonResponse.shortUrl);
+    if(isValidUrl(jsonResponse.originalUrl)) {
+      setNarrowUrl(jsonResponse.shortUrl);
+      setIsValid(true);
+    }
+    else
+      setNarrowUrl("");
+
+    if (!narrowUrl) {
+      alert("The given URL is invalid.... Try again with a valid URL");
+    }
     const getUrl = await fetch(`/${narrowUrl}`, {
       method: "GET",
     });
@@ -49,9 +74,9 @@ const URLshortener = () => {
 
   /* Start Output Url Functions*/
   const [narrowUrl, setNarrowUrl] = useState("");
-  let finalUrl = "http://nrly.herokuapp.com/";
+  let finalUrl = "";
 
-  finalUrl = narrowUrl ? "http://nrly.herokuapp.com/" + narrowUrl : "";
+  finalUrl = narrowUrl && isValid ? "http://nrly.herokuapp.com/" + narrowUrl : "";
   const handleCopyClick = () => {
     navigator.clipboard.writeText(finalUrl);
     alert("Narrow URL Copied!!");
@@ -68,7 +93,6 @@ const URLshortener = () => {
   /*QR Link Functions*/
 
   /* SMS Modal*/
-  const [show, setShow] = useState(false);
   const [phNumber, setPhNumber] = useState("");
 
   const handleNumberChange = (event) => {
