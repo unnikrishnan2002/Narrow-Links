@@ -8,6 +8,7 @@ Table Of Contents:
 - Input Shortener
 - Output Shortener
 - Text and Body
+- Toaster
 - Media Queries  
 ******************************************/
 
@@ -121,6 +122,23 @@ body {
 }
 
 /**********************/
+/*    Toaster         */
+/**********************/
+
+.toast-container {
+  position: absolute;
+  width: 100%;
+  top:0;
+  display: flex;
+  justify-content: center;
+}
+
+.toast {
+  background-color: rgba(66, 133, 244, 0.8);
+  width: 40%;
+}
+
+/**********************/
 /*    Media Queries   */
 /**********************/
 
@@ -150,6 +168,9 @@ body {
     font-size: 20px;
     width: 90vw;
     margin: auto;
+  }
+  .toast {
+    width: 70%;
   }
 }
 /* Code from here*/
