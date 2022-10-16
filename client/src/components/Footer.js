@@ -6,10 +6,10 @@ const Footer = () => {
 
     <div className="social-links">
 
-    <a className="social-icons" href="#"><i class="fa-brands fa-google"></i></a>
-    <a className="social-icons" href="#"><i class="social-icon fa-brands fa-facebook-f"></i></a>
-    <a className="social-icons" href="#"><i class="social-icon fa-brands fa-twitter"></i></a>
-    <a className="social-icons" href="#"><i class="social-icon fa-brands fa-instagram"></i></a>
+    <a className="social-icons" href="#"><i className="fa-brands fa-google"></i></a>
+    <a className="social-icons" href="#"><i className="social-icon fa-brands fa-facebook-f"></i></a>
+    <a className="social-icons" href="#"><i className="social-icon fa-brands fa-twitter"></i></a>
+    <a className="social-icons" href="#"><i className="social-icon fa-brands fa-instagram"></i></a>
 
 
     {/* <div class="downloads col-lg-6">
