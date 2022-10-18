@@ -57,7 +57,13 @@ Table Of Contents:
   color: #0d6efd;
   margin: auto 0 auto 5vw;
 }
+.alert-box{
+  width: 50%;
+  float: left;
+  top: 6px;
+  left: 2px;
 
+}
 /**********************/
 /*  Input Shortener   */
 /**********************/

@@ -28,7 +28,7 @@ export function ShareLink({
       </div>
 
       {/*  Modal */}
-      <div
+      <div 
         class="modal fade"
         id="exampleModal"
         tabIndex="-1"
