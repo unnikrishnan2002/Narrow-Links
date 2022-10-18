@@ -1,0 +1,167 @@
+.resultState {
+    height: fit-content;
+    width: 800px;
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    padding: 20px 25px;
+    margin-bottom: 100px;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #222222;
+}
+
+.resultState > .headerContainer {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resultState > .headerContainer > .result-icon {
+    width: 24px;
+    height: 100%;
+}
+
+.resultState > .headerContainer > .header-title {
+    margin-top: 7px;
+    font-size: 16px;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.resultState > .linkContainer {
+    height: fit-content;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.resultState > .linkContainer > .title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.3); 
+    margin-bottom: 0;
+}
+
+.resultState > .linkContainer > .link {
+    margin-top: 5px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.resultState > .linkContainer > .link > .copy-icon {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.resultState > .shareContainer {
+    height: fit-content;
+    margin-top: 45px;
+    text-align: left;
+}
+
+.resultState > .shareContainer > .title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.3); 
+    margin-bottom: 0;
+}
+
+.resultState > .shareContainer > .buttons {
+    margin-top: 10px;
+}
+
+.resultState > .shareContainer > .buttons > button {
+    padding: 7px 20px;
+    color: white;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resultState > .shareContainer > .buttons > button:hover {
+    background-color: #6F2BFF;
+    transition: .1s ease-in-out;
+}
+
+.resultState > .shareContainer > .buttons > button.sms > img {
+    margin-right: 10px;
+    margin-bottom: 1px;
+}
+
+.resultState > .shareContainer > .buttons > button.qrcode {
+    margin-left: 10px;
+}
+
+.resultState > .shareContainer > .buttons > button.qrcode > img {
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px){
+    .resultState{
+        width: 100%;
+    }
+}
+
+@media (max-width: 550px){
+    .resultState {
+        padding: 20px 18px;
+    }
+
+    .resultState > .linkContainer > .title {
+        font-size: 14px;
+    }
+
+    .resultState > .linkContainer > .link {
+        font-size: 17px;
+    }
+
+    .resultState > .linkContainer > .link > .copy-icon {
+        margin-left: 10px;
+    }
+
+    .resultState > .shareContainer > .title {
+        font-size: 14px;
+    }
+
+    .resultState > .shareContainer > .buttons > button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 425px){
+    .resultState > .linkContainer > .title {
+        font-size: 14px;
+    }
+
+    .resultState > .linkContainer > .link {
+        font-size: 16px;
+    }
+
+
+    .resultState > .shareContainer > .title {
+        font-size: 14px;
+    }
+
+    .resultState > .shareContainer > .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .resultState > .shareContainer > .buttons > button {
+        padding: 7px 10px;
+    }
+}
+
+@media (max-width: 425px){
+    .resultState > .headerContainer > .header-title {
+        font-size: 14px;
+    }
+
+    .resultState > .linkContainer > .link {
+        word-wrap: break-word;
+        line-height: 25px;
+    }
+}
