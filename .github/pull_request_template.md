@@ -37,3 +37,6 @@ To mark a box just add 'x' between the [] with any spaces.
 ### 📄 Note to reviewers
 <!-- Fill in anything that you want to let the reviewers know about -->
 <!-- If you don't have anything for the reviewers, please remove this section -->
+
+### 📷 Screenshots
+<!-- Add any screenshot(s) that will help the reviewers -->
