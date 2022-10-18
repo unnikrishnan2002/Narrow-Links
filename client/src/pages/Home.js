@@ -1,15 +1,26 @@
 import { OutputUrl } from "./Sections/OutputUrl";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../css/home.css";
 import { ShareLink } from "./Sections/ShareLink";
 import { InputUrl } from "./Sections/InputUrl";
+import Alert from 'react-bootstrap/Alert';
 
 const URLshortener = () => {
   // Request loading state
   const [loading, setLoading] = useState(false);
+  const [showAlerts,setShowAlerts]=useState(false)
+  const [message,setShowMessage]=useState("")
 
   /*Input Link Function*/
   const [url, setUrl] = useState("");
+
+useEffect(() => {
+    window.setTimeout(()=>{
+      setShowAlerts(false)
+    },2000)
+}, [showAlerts])
+
+
   const handleOnClick = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -45,6 +56,10 @@ const URLshortener = () => {
       handleOnClick();
     }
   };
+  const showMessage=(msg)=>{
+    setShowAlerts(true)
+    setShowMessage(msg)
+  }
   /*End Input Link Function*/
 
   /* Start Output Url Functions*/
@@ -54,7 +69,7 @@ const URLshortener = () => {
   finalUrl = narrowUrl ? "http://nrly.herokuapp.com/" + narrowUrl : "";
   const handleCopyClick = () => {
     navigator.clipboard.writeText(finalUrl);
-    alert("Narrow URL Copied!!");
+    showMessage("Narrow Url Copied!!")
   };
   /* End Output Url Functions*/
 
@@ -76,8 +91,8 @@ const URLshortener = () => {
   };
   const handleSendSMSClick = async (e) => {
     e.preventDefault();
+    showMessage("SMS will be sent shortly")
     setTimeout(() => {
-      alert("SMS will be sent shortly");
       setPhNumber("");
     }, 1000);
 
@@ -105,7 +120,7 @@ const URLshortener = () => {
     // So basically put all your html data here for the page . Please note that you don't have to write the html for navbar here. For Navbar there is separate file called Navbar.js in src/components/Navbar.js. Just write the navbar code there and it will appear here
 
     // For the css for this page as well as the navbar page there are separate files made there named home.css and navbar.css just write your css there and it will automatically appear here because i have imported it here and Navbar.js files
-    <>
+    <> {showAlerts?<Alert className="alert-box" variant= 'success' onClose={()=>setShowAlerts(false)} dismissible>{message}</Alert>:null}
       <div className="shortener" id="shortener">
         <h1 className="narrow-links text-center">Narrow-Links</h1>
         <InputUrl
