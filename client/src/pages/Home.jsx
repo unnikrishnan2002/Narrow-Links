@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   // Input Link Function
-  function ShortenURL(e) {
+  async function ShortenURL(e) {
     e.preventDefault();
     // Check if the URL entered is blank
     url !== "" ? getNarrowLink() : setToastMessage('URL to shortern cannot be blank. Please enter valid URL.'); 
