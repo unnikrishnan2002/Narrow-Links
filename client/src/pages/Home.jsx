@@ -2,6 +2,7 @@ import { useState } from "react";
 import InputURL from "./Sections/InputURL";
 import ShowQR from "./Sections/ShowQR";
 import ShowSMS from "./Sections/ShowSMS";
+import Toaster  from "../components/Toaster";
 import Result from './Sections/Result';
 import animatedLoading from '../assets/loading-animated.svg';
 import "../css/home.css";
@@ -11,6 +12,7 @@ export default function Home() {
 
   /* States Center */
   const [ url, setUrl ] = useState("");
+  const [toastMessage, setToastMessage] = useState(""); 
   const [ narrowURL, setNarrowURL ] = useState("");
   const [ status, setStatus ] = useState("idle");
   const [ showQR, setShowQR ] = useState(false);
@@ -31,8 +33,15 @@ export default function Home() {
 
   // Input Link Function
   async function ShortenURL(e) {
-    setStatus("loading");
+    e.preventDefault();
+    // Check if the URL entered is blank
+    url !== "" ? getNarrowLink() : setToastMessage('URL to shortern cannot be blank. Please enter valid URL.'); 
+  };
 
+  const getNarrowLink = async () => {
+    // Clear Toster if present 
+    setToastMessage("");
+    setStatus("loading");
     const response = await fetch(
       "https://nrly.herokuapp.com/api/url/narrowurl",
       {
@@ -86,6 +95,10 @@ export default function Home() {
           <Result narrowURL={narrowURL} setShowSMS={setShowSMS} setShowQR={setShowQR} />
         }
       </section>
+      {toastMessage && <Toaster
+        message = {toastMessage}
+        setMessage = {setToastMessage}
+      />}
     </>
   );
 };
