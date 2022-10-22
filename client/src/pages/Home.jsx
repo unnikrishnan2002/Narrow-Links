@@ -35,12 +35,12 @@ export default function Home() {
   function ShortenURL(e) {
     e.preventDefault();
     // Check if the URL entered is blank
-    url !== '' ? getNarrowLink() : setToastMessage('URL to shortern cannot be blank. Please enter valid URL.'); 
+    url !== "" ? getNarrowLink() : setToastMessage('URL to shortern cannot be blank. Please enter valid URL.'); 
   };
 
   const getNarrowLink = async () => {
     // Clear Toster if present 
-    setToastMessage('');
+    setToastMessage("");
     setStatus("loading");
     const response = await fetch(
       "https://nrly.herokuapp.com/api/url/narrowurl",
@@ -57,7 +57,7 @@ export default function Home() {
     setUrl(jsonResponse.originalUrl);
     setNarrowURL(`http://nrly.herokuapp.com/${jsonResponse.shortUrl}`);
     setStatus("done");
-  }
+  };
 
   return (
     // This is the HTML data of the homepage ie; the page in which we give original Url and get the short Url
