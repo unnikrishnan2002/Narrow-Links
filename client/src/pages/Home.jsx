@@ -2,53 +2,72 @@ import { useState } from "react";
 import InputURL from "./Sections/InputURL";
 import ShowQR from "./Sections/ShowQR";
 import ShowSMS from "./Sections/ShowSMS";
-import Result from './Sections/Result';
-import animatedLoading from '../assets/loading-animated.svg';
+import Result from "./Sections/Result";
+import animatedLoading from "../assets/loading-animated.svg";
 import "../css/home.css";
-import '../css/animated.css';
+import "../css/animated.css";
 
 export default function Home() {
-
   /* States Center */
-  const [ url, setUrl ] = useState("");
-  const [ narrowURL, setNarrowURL ] = useState("");
-  const [ status, setStatus ] = useState("idle");
-  const [ showQR, setShowQR ] = useState(false);
-  const [ showSMS, setShowSMS ] = useState(false);
-  
+  const [url, setUrl] = useState("");
+  const [narrowURL, setNarrowURL] = useState("");
+  const [status, setStatus] = useState("idle");
+  const [showQR, setShowQR] = useState(false);
+  const [showSMS, setShowSMS] = useState(false);
+  const [validURL, setValidURL] = useState(true);
   // For component InputUrl
-  function URLInput(element){
+  function URLInput(element) {
     setUrl(element.target.value);
-  };
+  }
 
   // For component InputUrl
-  function HandleEnter(e){
+  function HandleEnter(e) {
     // it triggers Narrow Link by pressing the enter key
     if (e.keyCode === 13) {
       ShortenURL();
     }
-  };
+  }
 
   // Input Link Function
   async function ShortenURL(e) {
     setStatus("loading");
 
-    const response = await fetch(
-      "https://nrly.herokuapp.com/api/url/narrowurl",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          originalUrl: url
-        })
-      }
-    );
+    const isValidUrl = (url) => {
+      var urlCheck = new RegExp(
+        "^(https?:\\/\\/)?" +
+          "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" +
+          "((\\d{1,3}\\.){3}\\d{1,3}))" +
+          "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" +
+          "(\\?[;&a-z\\d%_.~+=-]*)?" +
+          "(\\#[-a-z\\d_]*)?$",
+        "i"
+      );
+      return !!urlCheck.test(url);
+    };
 
-    const jsonResponse = await response.json();
-    setUrl(jsonResponse.originalUrl);
-    setNarrowURL(`http://nrly.herokuapp.com/${jsonResponse.shortUrl}`);
-    setStatus("done");
-  };
+    if (!isValidUrl(url)) {
+      setValidURL(false);
+      setStatus("done");
+    } else {
+      const response = await fetch(
+        "https://nrly.herokuapp.com/api/url/narrowurl",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            originalUrl: !url.startsWith("https://") ? "https://" + url : url,
+          }),
+        }
+      );
+
+      const jsonResponse = await response.json();
+      console.log(jsonResponse.originalUrl, jsonResponse.shortUrl);
+      setUrl(url);
+      setNarrowURL(`http://nrly.herokuapp.com/${jsonResponse.shortUrl}`);
+      setStatus("done");
+      setValidURL("true");
+    }
+  }
 
   return (
     // This is the HTML data of the homepage ie; the page in which we give original Url and get the short Url
@@ -57,35 +76,55 @@ export default function Home() {
 
     // For the css for this page as well as the navbar page there are separate files made there named home.css and navbar.css just write your css there and it will automatically appear here because i have imported it here and Navbar.js files
     <>
-      { showQR && <ShowQR narrowURL={narrowURL} setShowQR={setShowQR} /> }
-      { showSMS && <ShowSMS narrowURL={narrowURL} setShowSMS={setShowSMS} /> }
+      {showQR && <ShowQR narrowURL={narrowURL} setShowQR={setShowQR} />}
+      {showSMS && <ShowSMS narrowURL={narrowURL} setShowSMS={setShowSMS} />}
 
       <section id="shortener">
         <section className="headline flex flex-col items-center justify-center text-center animated-fadeIn">
           <p className="the">The</p>
           <h1 className="big-headline">URL Shortener</h1>
-          <p className="description">Shorten your link with ease and share your link via SMS or scan QR code</p>
+          <p className="description">
+            Shorten your link with ease and share your link via SMS or scan QR
+            code
+          </p>
         </section>
 
-        <InputURL url={url} URLInput={URLInput} HandleEnter={HandleEnter} ShortenURL={ShortenURL} />
+        <InputURL
+          url={url}
+          URLInput={URLInput}
+          HandleEnter={HandleEnter}
+          ShortenURL={ShortenURL}
+        />
 
-        { status === "idle" &&
+        {status === "idle" && (
           <section className="idleState animated-fadeIn">
-            <p className="title">Try shorten your URL<br/> It's free 😁</p>
+            <p className="title">
+              Try shorten your URL
+              <br /> It's free 😁
+            </p>
           </section>
-        }
+        )}
 
-        { status === "loading" &&
+        {status === "loading" && (
           <section className="loadingState animated-fadeIn">
             <h1 className="title">Shortening your url ...</h1>
-            <img src={animatedLoading} alt="loading-animated" className="loading-animated" />
+            <img
+              src={animatedLoading}
+              alt="loading-animated"
+              className="loading-animated"
+            />
           </section>
-        }
+        )}
 
-        { status === "done" &&
-          <Result narrowURL={narrowURL} setShowSMS={setShowSMS} setShowQR={setShowQR} />
-        }
+        {status === "done" && (
+          <Result
+            narrowURL={narrowURL}
+            setShowSMS={setShowSMS}
+            setShowQR={setShowQR}
+            isValid={validURL}
+          />
+        )}
       </section>
     </>
   );
-};
+}
