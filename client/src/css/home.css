@@ -30,51 +30,61 @@ Table Of Contents:
 } */
 
 /**********************/
-/*     Bottons     */
+/*     Buttons     */
 /**********************/
 .shorten-button {
-  width: 6.25rem;
-  height: 3rem;
-  margin: auto;
+    width: 6.25rem;
+    height: 3rem;
+    margin: auto;
 }
 
 .sms-button {
-  width: fit-content;
-  height: auto;
-  margin: auto 5vw auto 0;
+    width: fit-content;
+    height: auto;
+    margin: auto 5vw auto 0;
 }
 
 .QR-icon {
-  font-size: 50px;
-  height: auto;
-  cursor: pointer;
-  color: #0d6efd;
-  margin: auto 0 auto 5vw;
+    font-size: 50px;
+    height: auto;
+    cursor: pointer;
+    color: #0d6efd;
+    margin: auto 0 auto 5vw;
+}
+
+.log-in,
+.log-out {
+    margin: 0.3rem;
+    background-color: #6f2bff;
+    border-radius: 7px;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: 700;
 }
 
 /**********************/
 /*  Input Shortener   */
 /**********************/
 .link-box {
-  height: 3rem;
-  font-size: 20px;
-  width: 45vw;
-  margin: 15px;
+    height: 3rem;
+    font-size: 20px;
+    width: 45vw;
+    margin: 15px;
 }
 
 /**********************/
 /* Output Shortener  */
 /**********************/
 .narrowurl {
-  height: auto;
-  width: 40vmax;
-  margin: auto;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    height: auto;
+    width: 40vmax;
+    margin: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .narrowurl .btn {
-  width: 4rem;
+    width: 4rem;
 }
 
 /**********************/
@@ -82,42 +92,42 @@ Table Of Contents:
 /**********************/
 
 div.container {
-  width: 100%;
-  height: 100%;
-  margin: 5px 0;
-  padding: 5px 0;
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 5px 0;
+    padding: 5px 0;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #shortener {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 50px;
-  padding-inline: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-inline: 50px;
 }
 
 .narrow-links {
-  width: 100%;
-  font-size: 60px;
-  margin-bottom: 50px;
-  margin-right: 3.125rem;
+    width: 100%;
+    font-size: 60px;
+    margin-bottom: 50px;
+    margin-right: 3.125rem;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 /**********************/
@@ -125,478 +135,476 @@ body {
 /**********************/
 
 @media only screen and (max-width: 576px) {
-  /* For small screens/Mobile devices */
-  div.container {
-    width: 100%;
-    height: 100%;
-    padding: 5px 2vmin;
-  }
-  .sms-button {
-    width: fit-content;
-    margin: auto;
-  }
-  .shorten-button {
-    width: fit-content;
-    margin: auto 1vmin;
-  }
-  #inputUrl {
-    width: 85vw;
-  }
-  .narrowurl {
-    width: 70%;
-    margin: auto;
-  }
-  .link-box {
-    font-size: 20px;
-    width: 90vw;
-    margin: auto;
-  }
+    /* For small screens/Mobile devices */
+    div.container {
+        width: 100%;
+        height: 100%;
+        padding: 5px 2vmin;
+    }
+    .sms-button {
+        width: fit-content;
+        margin: auto;
+    }
+    .shorten-button {
+        width: fit-content;
+        margin: auto 1vmin;
+    }
+    #inputUrl {
+        width: 85vw;
+    }
+    .narrowurl {
+        width: 70%;
+        margin: auto;
+    }
+    .link-box {
+        font-size: 20px;
+        width: 90vw;
+        margin: auto;
+    }
 }
 /* Code from here*/
 
 .qr-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
 }
 
 .qr-container > .qr-modal {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
 }
 
 .qr-container > .qr-modal > .brand {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .qr-container > .qr-modal > .brand > img {
-  width: 24px;
+    width: 24px;
 }
 
 .qr-container > .qr-modal > .brand > h1 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-top: 10px;
-  margin-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .qr-container > .qr-modal > .scanQR {
-  margin-top: 30px;
-  text-align: center;
+    margin-top: 30px;
+    text-align: center;
 }
 
 .qr-container > .qr-modal > .scanQR > h1 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .qr-container > .qr-modal > .scanQR > .qr-code {
-  width: 200px;
+    width: 200px;
 }
 
 .qr-container > .qr-modal > .scanQR > .url {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .qr-container > .qr-modal > .done {
-  margin-top: 15px;
-  width: 100%;
-  padding: 10px 0;
-  border: none;
-  color: white;
-  font-weight: 700;
-  border-radius: 10px;
-  background-color: #6F2BFF;
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    color: white;
+    font-weight: 700;
+    border-radius: 10px;
+    background-color: #6f2bff;
 }
 
 .sms-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
 }
 
 .sms-container > .sms-modal {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
 }
 
 .sms-container > .sms-modal > .brand-container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .sms-container > .sms-modal > .brand-container > .brand {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .sms-container > .sms-modal > .brand-container > .brand > img {
-  width: 24px;
+    width: 24px;
 }
 
 .sms-container > .sms-modal > .brand-container > .brand > h1 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-top: 10px;
-  margin-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .sms-container > .sms-modal > .brand-container > button {
-  padding: 1px 5px;
-  font-size: 13px;
-  color: rgb(136, 136, 136);
-  border: 1px solid rgba(255, 255, 255, 0.486);
-  border-radius: 5px;
-  background-color: #0000001e;
+    padding: 1px 5px;
+    font-size: 13px;
+    color: rgb(136, 136, 136);
+    border: 1px solid rgba(255, 255, 255, 0.486);
+    border-radius: 5px;
+    background-color: #0000001e;
 }
 
 .sms-container > .sms-modal > .brand-container > button:hover {
-  color: white;
-  background-color: #6F2BFF;
+    color: white;
+    background-color: #6f2bff;
 }
 
 .sms-container > .sms-modal > .form {
-  width: 100%;
-  margin-top: 15px;
+    width: 100%;
+    margin-top: 15px;
 }
 
 .sms-container > .sms-modal > .form > p {
-  font-size: 15px;
-  font-weight: 500;
-  margin-bottom: 0;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 0;
 }
 
 .sms-container > .sms-modal > .form > input {
-  width: 100%;
-  font-weight: 600;
-  margin-top: 10px;
-  padding: 10px 20px;
-  border-radius: 7px;
-  background-color: #EBEBEB;
-  border: 1px solid #C1C1C1;
+    width: 100%;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 7px;
+    background-color: #ebebeb;
+    border: 1px solid #c1c1c1;
 }
 
 .sms-container > .sms-modal > .form > input:focus {
-  outline: 2px solid #6e2bff8c;
+    outline: 2px solid #6e2bff8c;
 }
 
 .sms-container > .sms-modal > .form > .done {
-  margin-top: 8px;
-  width: 100%;
-  padding: 10px 0;
-  border: none;
-  color: white;
-  font-weight: 700;
-  border-radius: 7px;
-  background-color: #6F2BFF;
+    margin-top: 8px;
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    color: white;
+    font-weight: 700;
+    border-radius: 7px;
+    background-color: #6f2bff;
 }
 
 .sms-container > .sms-modal > .form > .done > .loading {
-  width: 28px;
+    width: 28px;
 }
 
 /* Text Colors */
 .text-white {
-  color: #FFFFFF;
+    color: #ffffff;
 }
 .text-white-50 {
-  color: var(--white-50);
+    color: var(--white-50);
 }
 
 /* Text Sizes */
 .text-xs {
-  font-size: 13px;
+    font-size: 13px;
 }
 .text-sm {
-  font-size: 14px;
+    font-size: 14px;
 }
 .text-md {
-  font-size: 16px;
+    font-size: 16px;
 }
 .text-lg {
-  font-size: 18px;
+    font-size: 18px;
 }
 .text-70px {
-  font-size: 70px;
+    font-size: 70px;
 }
 .text-20px {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 /* Font Weight */
 .font-thin {
-  font-weight: 100;
+    font-weight: 100;
 }
 .font-bold {
-  font-weight: 700;
+    font-weight: 700;
 }
 .font-medium {
-  font-weight: 500;
+    font-weight: 500;
 }
 
 .the {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: large;
-  font-weight: 600;
-  margin: 0;
-}
-
-.big-headline {
-  font-size: 70px;
-  color: white;
-  font-weight: bold;
-}
-
-.description {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.idleState {
-  margin-top: 100px;
-  width: fit-content;
-  text-align: center;
-  color: white;
-}
-
-.idleState > .title {
-  font-size: 18px;
-}
-
-.resultContainer {
-  border: 1px solid white;
-}
-
-.loadingState {
-  margin-top: 100px;
-  width: fit-content;
-  text-align: center;
-  color: white;
-}
-
-.loadingState > .title {
-  font-size: 18px;
-}
-
-.loadingState > .loading-animated {
-  width: 50px;
-  margin-top: 10px;
-}
-
-.resultState {
-  height: fit-content;
-  width: 800px;
-  margin-top: 20px;
-  text-align: center;
-  color: white;
-  padding: 20px 25px;
-  border-radius: 7px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: #222222;
-}
-
-.resultState > .headerContainer {
-  display: flex;
-  align-items: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.resultState > .headerContainer > .result-icon {
-  width: 24px;
-  height: 100%;
-}
-
-.resultState > .headerContainer > .header-title {
-  margin-top: 7px;
-  font-size: 16px;
-  margin-left: 15px;
-  font-weight: 600;
-}
-
-.resultState > .linkContainer {
-  height: fit-content;
-  margin-top: 20px;
-  text-align: left;
-}
-
-.resultState > .linkContainer > .title {
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.3); 
-  margin-bottom: 0;
-}
-
-.resultState > .linkContainer > .link {
-  margin-top: 5px;
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.resultState > .linkContainer > .link > .copy-icon {
-  margin-left: 20px;
-  cursor: pointer;
-}
-
-.resultState > .shareContainer {
-  height: fit-content;
-  margin-top: 45px;
-  text-align: left;
-}
-
-.resultState > .shareContainer > .title {
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.3); 
-  margin-bottom: 0;
-}
-
-.resultState > .shareContainer > .buttons {
-  margin-top: 10px;
-}
-
-.resultState > .shareContainer > .buttons > button {
-  padding: 7px 20px;
-  color: white;
-  border-radius: 5px;
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.resultState > .shareContainer > .buttons > button:hover {
-  background-color: #6F2BFF;
-  transition: .1s ease-in-out;
-}
-
-.resultState > .shareContainer > .buttons > button.sms > img {
-  margin-right: 10px;
-  margin-bottom: 1px;
-}
-
-.resultState > .shareContainer > .buttons > button.qrcode {
-  margin-left: 10px;
-}
-
-.resultState > .shareContainer > .buttons > button.qrcode > img {
-  margin-right: 10px;
-  margin-bottom: 2px;
-}
-
-/* gnwncpta's Utilities */
-.flex{
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-/* Responsive Breakpoints */
-
-@media only screen and (max-width: 425px){
-  #shortener {
-    padding-inline: 30px;
-    /* border: 1px solid red; */
-  }
-
-  .the {
     color: rgba(255, 255, 255, 0.5);
     font-size: large;
     font-weight: 600;
     margin: 0;
-    margin-bottom: 10px;
-  }
-  
-  .big-headline {
-    font-size: 65px;
-    color: white;
-    font-weight: bold;
-    line-height: 60px;
-    /* border: 1px solid red; */
-  }
-  
-  .description {
-    margin-top: 10px;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .qr-container {
-    padding-inline: 30px;
-  }
-
-  .qr-container > .qr-modal > .scanQR > .qr-code {
-    width: 180px;
-  }
-
-  .qr-container > .qr-modal > .brand > img {
-    width: 20px;
-  }
-  
-  .qr-container > .qr-modal > .brand > h1 {
-    font-size: 16px;
-  }
-
-  .qr-container > .qr-modal > .scanQR > h1 {
-    font-size: 22px;
-  }
-
-  .sms-container {
-    padding-inline: 30px;
-  }
-
-  .sms-container > .sms-modal > .brand-container > .brand > img {
-    width: 20px;
-  }
-  
-  .sms-container > .sms-modal > .brand-container > .brand > h1 {
-    font-size: 16px;
-  }
-  
 }
 
-@media only screen and (max-width: 320px){
-  #shortener {
-    padding-inline: 20px;
-    /* border: 1px solid red; */
-  }
+.big-headline {
+    font-size: 70px;
+    color: white;
+    font-weight: bold;
+}
 
-  .big-headline {
-    font-size: 55px;
-  }
+.description {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
+}
 
+.idleState {
+    margin-top: 100px;
+    width: fit-content;
+    text-align: center;
+    color: white;
+}
+
+.idleState > .title {
+    font-size: 18px;
+}
+
+.resultContainer {
+    border: 1px solid white;
+}
+
+.loadingState {
+    margin-top: 100px;
+    width: fit-content;
+    text-align: center;
+    color: white;
+}
+
+.loadingState > .title {
+    font-size: 18px;
+}
+
+.loadingState > .loading-animated {
+    width: 50px;
+    margin-top: 10px;
+}
+
+.resultState {
+    height: fit-content;
+    width: 800px;
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    padding: 20px 25px;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #222222;
+}
+
+.resultState > .headerContainer {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resultState > .headerContainer > .result-icon {
+    width: 24px;
+    height: 100%;
+}
+
+.resultState > .headerContainer > .header-title {
+    margin-top: 7px;
+    font-size: 16px;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.resultState > .linkContainer {
+    height: fit-content;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.resultState > .linkContainer > .title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 0;
+}
+
+.resultState > .linkContainer > .link {
+    margin-top: 5px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.resultState > .linkContainer > .link > .copy-icon {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.resultState > .shareContainer {
+    height: fit-content;
+    margin-top: 45px;
+    text-align: left;
+}
+
+.resultState > .shareContainer > .title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 0;
+}
+
+.resultState > .shareContainer > .buttons {
+    margin-top: 10px;
+}
+
+.resultState > .shareContainer > .buttons > button {
+    padding: 7px 20px;
+    color: white;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resultState > .shareContainer > .buttons > button:hover {
+    background-color: #6f2bff;
+    transition: 0.1s ease-in-out;
+}
+
+.resultState > .shareContainer > .buttons > button.sms > img {
+    margin-right: 10px;
+    margin-bottom: 1px;
+}
+
+.resultState > .shareContainer > .buttons > button.qrcode {
+    margin-left: 10px;
+}
+
+.resultState > .shareContainer > .buttons > button.qrcode > img {
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+/* gnwncpta's Utilities */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+/* Responsive Breakpoints */
+
+@media only screen and (max-width: 425px) {
+    #shortener {
+        padding-inline: 30px;
+        /* border: 1px solid red; */
+    }
+
+    .the {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: large;
+        font-weight: 600;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .big-headline {
+        font-size: 65px;
+        color: white;
+        font-weight: bold;
+        line-height: 60px;
+        /* border: 1px solid red; */
+    }
+
+    .description {
+        margin-top: 10px;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .qr-container {
+        padding-inline: 30px;
+    }
+
+    .qr-container > .qr-modal > .scanQR > .qr-code {
+        width: 180px;
+    }
+
+    .qr-container > .qr-modal > .brand > img {
+        width: 20px;
+    }
+
+    .qr-container > .qr-modal > .brand > h1 {
+        font-size: 16px;
+    }
+
+    .qr-container > .qr-modal > .scanQR > h1 {
+        font-size: 22px;
+    }
+
+    .sms-container {
+        padding-inline: 30px;
+    }
+
+    .sms-container > .sms-modal > .brand-container > .brand > img {
+        width: 20px;
+    }
+
+    .sms-container > .sms-modal > .brand-container > .brand > h1 {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #shortener {
+        padding-inline: 20px;
+        /* border: 1px solid red; */
+    }
+
+    .big-headline {
+        font-size: 55px;
+    }
 }
