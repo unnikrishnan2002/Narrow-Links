@@ -17,7 +17,7 @@ export default function ShowSMS(props){
         e.preventDefault();
         setSendProcess(true);
 
-        const response = await fetch("https://nrly.herokuapp.com/api/sms/twiliosms", {
+        const response = await fetch("https://nly-l6ia.onrender.com/api/sms/twiliosms", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
