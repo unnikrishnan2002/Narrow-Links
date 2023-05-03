@@ -13,7 +13,7 @@ Another recent addition is a simple one-click button for sending the link to who
 
 #### Checkout on Devfolio : https://devfolio.co/projects/narrowlinks-291f
 
-#### Website Link : https://narrow-links.vercel.app/
+#### Website Link : https://narrow-links-app.vercel.app/
 
 ## 🧰 Technologies Used 
 
